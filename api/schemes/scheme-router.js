@@ -52,10 +52,9 @@ router.get('/', (req, res, next) => {
     ]
   }
 */
-// checkSchemeId,
-router.get('/:scheme_id', (req, res, next) => {
+// 
+router.get('/:scheme_id', checkSchemeId, (req, res, next) => {
   const { scheme_id } = req.params
-
   Schemes.findById(scheme_id)
     .then(scheme => {
       res.json(scheme)
@@ -79,9 +78,9 @@ router.get('/:scheme_id', (req, res, next) => {
       "step_number": 2,
       "instructions": "profit",
       "scheme_name": "Get Rich Quick"
-    }
+    }    
   ]
-*/
+*/ 
 router.get('/:scheme_id/steps', checkSchemeId, (req, res, next) => {
   const { scheme_id } = req.params
 
